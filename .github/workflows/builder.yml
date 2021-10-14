@@ -1,0 +1,16 @@
+name: Build and Scan
+on:
+  pushes:
+   pull_requests:
+jobs:
+  build:
+    runs-on: Linux 2.4 (64-bit)
+    steps:
+      - name: Check out Code
+        uses: actions/checkout@v2
+      - name: Install node.js 14.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14.x
+      - name: Install dependencies
+        run: npm clean-install
